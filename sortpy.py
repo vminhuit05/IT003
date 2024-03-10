@@ -3,7 +3,7 @@
 # import time
 #
 # for i in range(1,11):
-#     f = open(f'number{i}.out.txt','r')
+#     f = open(f'number.inp{i}.txt','r')
 #     data = f.read().split(" ")
 #     # print(data)
 #     #print(type(data))
