@@ -195,7 +195,7 @@ int main()
 {
     ios_base::sync_with_stdio(0);
     cin.tie(0);cout.tie(0);
-    freopen("number.inp3.txt","r",stdin);
+    freopen("number.inp1.txt","r",stdin);
     freopen("result1.out.txt","w",stdout);
     process();
     /*freopen("number.inp2.txt","r",stdin);
