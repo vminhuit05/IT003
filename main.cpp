@@ -8,8 +8,8 @@
 using namespace std;
 const int inf = 1000000;
 
-ll a[inf + 50];
-ll L[inf + 50], M[inf + 50];
+int a[inf + 50];
+int L[inf + 50], M[inf + 50];
 
 /*void heap_sort(int left, int right)
 {
@@ -36,7 +36,7 @@ void swap(int &a, int &b)
     b = t;
 }
 */
-void heapify(vector<ll>& arr, int n, int i) {
+void heapify(vector<int>& arr, int n, int i) {
     // Find the largest among the root and its children
     int largest = i;
     int left = 2 * i + 1;
@@ -58,7 +58,7 @@ void heapify(vector<ll>& arr, int n, int i) {
 }
 
 // A function to perform heapsort on an array
-void heap_sort(vector<ll>& arr) {
+void heap_sort(vector<int>& arr) {
     int n = arr.size();
 
     // Build a max heap from the array
@@ -187,7 +187,7 @@ void process()
 
     cout<<elapsed_seconds.count()*1000<<'\n';
 
-    for(int i = 1; i <= inf; i++) cout << arr[i] << ' ';
+    // for(int i = 1; i <= inf; i++) cout << arr[i] << ' ';
 
 }
 
