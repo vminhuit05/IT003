@@ -8,10 +8,10 @@
 using namespace std;
 const int inf = 1000000;
 
-int a[inf + 50];
-int L[inf + 50], M[inf + 50];
+ll a[inf + 50];
+ll L[inf + 50], M[inf + 50];
 
-void heap_sort(int left, int right)
+/*void heap_sort(int left, int right)
 {
     priority_queue<int, vector<int>, greater<int>> check;
 
@@ -34,6 +34,45 @@ void swap(int &a, int &b)
     int t = a;
     a = b;
     b = t;
+}
+*/
+void heapify(vector<ll>& arr, int n, int i) {
+    // Find the largest among the root and its children
+    int largest = i;
+    int left = 2 * i + 1;
+    int right = 2 * i + 2;
+
+    if (left < n && arr[left] > arr[largest]) {
+        largest = left;
+    }
+
+    if (right < n && arr[right] > arr[largest]) {
+        largest = right;
+    }
+
+    // If the largest is not the root, swap and continue heapifying
+    if (largest != i) {
+        swap(arr[i], arr[largest]);
+        heapify(arr, n, largest);
+    }
+}
+
+// A function to perform heapsort on an array
+void heap_sort(vector<ll>& arr) {
+    int n = arr.size();
+
+    // Build a max heap from the array
+    for (int i = n / 2 - 1; i >= 0; i--) {
+        heapify(arr, n, i);
+    }
+
+    // Extract the elements from the heap one by one and place them in the sorted array
+    for (int i = n - 1; i > 0; i--) {
+        // Swap the root (largest element) with the last element of the heap
+        swap(arr[0], arr[i]);
+        // Heapify the reduced heap
+        heapify(arr, i, 0);
+    }
 }
 
 
@@ -125,13 +164,21 @@ void process()
         cin >> a[i];
     }
 
+//    for heap sort
+    vector<int> arr;
+    for (int i =0;i<inf;i++)
+    {
+        int hi;
+        cin>>hi;
+        arr.push_back(hi);
+    }
 
     auto start = std::chrono::system_clock::now();
 
-    mergeSort(1, inf);
-    //normal_sort(1, inf);
-    //heap_sort(1, inf);
-    //quickSort(1, inf);
+//    mergeSort(1, inf);
+    normal_sort(1, inf);
+//    heap_sort(arr);   
+//    quickSort(1, inf);
 
     auto ends = std::chrono::system_clock::now();
 
@@ -140,7 +187,7 @@ void process()
 
     cout<<elapsed_seconds.count()*1000<<'\n';
 
-    //for(int i = 1; i <= inf; i++) cout << a[i] << ' ';
+    for(int i = 1; i <= inf; i++) cout << arr[i] << ' ';
 
 }
 
@@ -148,26 +195,27 @@ int main()
 {
     ios_base::sync_with_stdio(0);
     cin.tie(0);cout.tie(0);
-    freopen("number1.out.txt","r",stdin);
+    freopen("number.inp3.txt","r",stdin);
+    freopen("result1.out.txt","w",stdout);
     process();
-    freopen("number2.out.txt","r",stdin);
+    /*freopen("number.inp2.txt","r",stdin);
     process();
-    freopen("number3.out.txt","r",stdin);
+    freopen("number.inp3.txt","r",stdin);
     process();
-    freopen("number4.out.txt","r",stdin);
+    freopen("number.inp4.txt","r",stdin);
     process();
-    freopen("number5.out.txt","r",stdin);
+    freopen("number.inp5.txt","r",stdin);
     process();
-    freopen("number6.out.txt","r",stdin);
+    freopen("number.inp6.txt","r",stdin);
     process();
-    freopen("number7.out.txt","r",stdin);
+    freopen("number.inp7.txt","r",stdin);
     process();
-    freopen("number8.out.txt","r",stdin);
+    freopen("number.inp8.txt","r",stdin);
     process();
-    freopen("number9.out.txt","r",stdin);
+    freopen("number.inp9.txt","r",stdin);
     process();
-    freopen("number10.out.txt","r",stdin);
-    process();
+    freopen("number.inp10.txt","r",stdin);
+    process();*/
 
     return 0;
 }
